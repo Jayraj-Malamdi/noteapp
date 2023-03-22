@@ -64,29 +64,31 @@ const updateNote =   async (req, res) => {
 };
 
 const deleteNote =  async (req, res) => {
-// // //     // get id off the url
-//       const noteId = req.params.id;
+// get id off the url
+const noteId = req.params.id;
 
-// // //     // delete the record
-// // // //    await Note.deleteMany({id: noteId});
-//     await Note.findOneAndDelete({ id: noteId });
+// delete the record
+    // await Note.deleteMany({id: noteId});
+    // await Note.findOneAndDelete({ id: noteId });
+await Note.deleteOne({ _id: noteId});       // IMP: for delete query to run , use "_id" and not "id".
 
-// // //     // respond
-//      res.json({success: "record deleted"});
-// // console.log(req.params.id);
+// respond
+res.json({success: "record deleted"});
 
-// //let id_del=req.params.id;
-// //Note.findByIdAndDelete(id_del);
+    // console.log(req.params.id);
 
-// const User = require('./models/user'); // Import the User model
+    // let id_del=req.params.id;
+    // Note.findByIdAndDelete(id_del);
 
-// User.deleteOne({ _id: '12345' }, (err) => {
-//   if (err) {
-//     console.error(err);
-//   } else {
-//     console.log('User deleted successfully!');
-//   }
-// });
+    // const User = require('./models/user'); // Import the User model
+
+    // User.deleteOne({ _id: '12345' }, (err) => {
+    //   if (err) {
+    //     console.error(err);
+    //   } else {
+    //     console.log('User deleted successfully!');
+    //   }
+    // });
 
 };
 
